@@ -1,6 +1,9 @@
 ## Overview
 
-Sends logs from json to srvlog.                     
+The app sends log messages from strilog-encoder to srvlog
+
+* strilog-encoder https://github.com/evsinev/strilog-encoder
+* srvlog https://github.com/payneteasy/srvlog
 
 ### How it works
 
