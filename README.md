@@ -2,6 +2,15 @@
 
 Sends logs from json to srvlog.                     
 
+### How it works
+
+* we write logs to a json file from our strilog-encoder plus file roller every minute a new file
+* as soon as two files or more appear in the directory, we take the one that was previous
+* convert from one message format to a message for srvlog
+* we send several messages in batche
+* since we don’t care about the delay here, we have 1 minute of messages in our queue
+* if there no more than 1 file for more than 3 minutes, then we send one last file
+* the log file is then deleted after successful sending
   
 ## Env variables
 
