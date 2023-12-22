@@ -40,7 +40,7 @@ public class FileSenderImpl implements IFileSender{
             offsetStore.saveOffset(file.getName(), in.getLineNumber());
 
         } catch (Exception e) {
-            LOG.error("Cannot process file {}", file.getAbsolutePath(), e);
+            throw new IllegalStateException("Cannot process file " + file.getAbsolutePath(), e);
         }
 
         try {

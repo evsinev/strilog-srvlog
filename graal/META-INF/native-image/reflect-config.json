@@ -10,6 +10,12 @@
     "unsafeAllocated": true
   },
   {
+    "name": "com.payneteasy.strilog.sender.event.LogEvent",
+    "allPublicFields": true,
+    "allDeclaredFields" : true,
+    "unsafeAllocated": true
+  },
+  {
     "name": "com.payneteasy.srvlog.api.messages.SaveLogsResponse",
     "allPublicFields": true,
     "allDeclaredFields" : true,
