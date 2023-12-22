@@ -1,0 +1,8 @@
+dirs:
+  - path: ./target/logs
+    facility: 8
+    program: hello
+
+  - path: ./target/logs2
+    facility: 8
+    program: hello
