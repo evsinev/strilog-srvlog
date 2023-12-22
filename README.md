@@ -46,7 +46,7 @@ dirs:
     <encoder class="com.payneteasy.strilog.encoder.json.JsonEncoder" />
 
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-        <fileNamePattern>/var/log/app-1-json/json-%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+        <fileNamePattern>/var/log/app-1-json/json-%d{yyyy-MM-dd-HH-mm}.log</fileNamePattern>
         <maxHistory>30</maxHistory>
         <totalSizeCap>3GB</totalSizeCap>
     </rollingPolicy>
