@@ -1,7 +1,6 @@
 package com.payneteasy.strilog.sender.task.dir;
 
 import com.payneteasy.strilog.sender.config.TSenderDir;
-import com.payneteasy.strilog.sender.offset.ICommitOffsetRepository;
 import com.payneteasy.strilog.sender.task.file.IFileSender;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
