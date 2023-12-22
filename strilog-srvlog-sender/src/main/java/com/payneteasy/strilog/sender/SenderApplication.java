@@ -43,7 +43,11 @@ public class SenderApplication {
                         , config.srvlogToken())
         );
 
+        Logger log = LoggerFactory.getLogger( SenderApplication.class );
+
         for (TSenderDir dirConfig : senderConfig.getDirs()) {
+            log.info("Registering dir {} ...", dirConfig);
+
             File dir = new File(dirConfig.getPath());
             executor.execute(new DirSenderTask(
                     dirConfig
@@ -63,7 +67,6 @@ public class SenderApplication {
             ));
         }
 
-        Logger log = LoggerFactory.getLogger( SenderApplication.class );
 
         executor.shutdown();
 

@@ -69,6 +69,9 @@ public class SrvlogClientImpl implements ISrvlogService {
             throw new IllegalStateException("Wrong response from server " + response.body());
         }
 
-        return gson.fromJson(response.body(), SaveLogsResponse.class);
+        SaveLogsResponse logsResponse = gson.fromJson(response.body(), SaveLogsResponse.class);
+        LOG.debug("Response is {}", logsResponse);
+
+        return logsResponse;
     }
 }
