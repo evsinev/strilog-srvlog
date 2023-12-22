@@ -13,9 +13,23 @@ CONFIG_FILE                  = ./config.yaml
 DIR_DETECT_OLD_FILES         = PT3M
 DIR_SLEEP_BETWEEN_LIST_FILES = PT1S
 SRVLOG_SAVE_URL              = http://localhost:28080/save-logs
-SRVLOG_TOKEN                 = ***********************************************
+SRVLOG_TOKEN                 = *******
 ```
+## Config example
 
+./config.yaml
+
+```yaml
+dirs:
+  - path: ./target/logs
+    facility: 8
+    program: hello
+
+  - path: ./target/logs2
+    facility: 8
+    program: hello
+```
+    
 ## How to configure logback.xml for your app
 
 ```xml
