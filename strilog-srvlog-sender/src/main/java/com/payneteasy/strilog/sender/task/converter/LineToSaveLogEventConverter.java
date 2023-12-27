@@ -3,7 +3,8 @@ package com.payneteasy.strilog.sender.task.converter;
 import com.google.gson.Gson;
 import com.payneteasy.srvlog.api.model.SaveLogEvent;
 import com.payneteasy.strilog.sender.event.LogEvent;
-import org.slf4j.helpers.MessageFormatter;
+
+import static org.slf4j.helpers.MessageFormatter.arrayFormat;
 
 public class LineToSaveLogEventConverter implements ILineToItemConverter<SaveLogEvent> {
 
@@ -46,7 +47,7 @@ public class LineToSaveLogEventConverter implements ILineToItemConverter<SaveLog
         sb.append(' ');
 
         if (aEvent.getArgs() != null && !aEvent.getArgs().isEmpty()) {
-            sb.append(MessageFormatter.arrayFormat(aEvent.getTemplate(), aEvent.getArgs().toArray(new String[0])));
+            sb.append(arrayFormat(aEvent.getTemplate(), aEvent.getArgs().toArray(new String[0])).getMessage());
         } else {
             sb.append(aEvent.getTemplate());
         }
