@@ -99,7 +99,7 @@ public class BatchSender<I> {
     }
 
     private void saveFailedItem(I item) {
-        if (failDir.exists()) {
+        if (!failDir.exists()) {
             if (failDir.mkdirs()) {
                 LOG.error("Cannot create dir {} to save {}", failDir.getAbsolutePath(), GSON.toJson(item));
                 return;
