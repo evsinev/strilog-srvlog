@@ -60,6 +60,7 @@ public class SenderApplication {
                             , config.maxBatchItems()
                             , config.maxBatchSize()
                             , config.batchErrorSleep()
+                            , config.failDir()
                         )
                     )
                     , config.dirSleep()

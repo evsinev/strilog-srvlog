@@ -31,4 +31,6 @@ public interface IStartupConfig {
     @AStartupParameter(name = "BATCH_ERROR_SLEEP", value = "PT1S")
     Duration batchErrorSleep();
 
+    @AStartupParameter(name = "FAIL_DIR", value = "/var/log/srvlog-sender/fail")
+    File failDir();
 }
