@@ -2,6 +2,7 @@ package com.payneteasy.srvlog.api.impl;
 
 import com.google.gson.Gson;
 import com.payneteasy.srvlog.api.ISrvlogService;
+import com.payneteasy.srvlog.api.exception.SrvlogUnknownException;
 import com.payneteasy.srvlog.api.messages.SaveLogsRequest;
 import com.payneteasy.srvlog.api.messages.SaveLogsResponse;
 import org.slf4j.Logger;
@@ -63,6 +64,13 @@ public class SrvlogClientImpl implements ISrvlogService {
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             throw new IllegalStateException("Interrupted while sending to " + uri, e);
+        }
+
+        if (response.statusCode() == 500) {
+            throw new SrvlogUnknownException(
+                    "Wrong response from server: " + response.body()
+                    , response.statusCode()
+            );
         }
 
         if (response.statusCode() != 200) {

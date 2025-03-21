@@ -1,6 +1,7 @@
 package com.payneteasy.strilog.sender.task.batch;
 
 import com.payneteasy.srvlog.api.ISrvlogService;
+import com.payneteasy.srvlog.api.exception.SrvlogUnknownException;
 import com.payneteasy.srvlog.api.messages.SaveLogsRequest;
 import com.payneteasy.srvlog.api.messages.SaveLogsResponse;
 import com.payneteasy.srvlog.api.model.SaveLogEvent;
@@ -18,7 +19,7 @@ public class BatchSenderClientImpl implements IBatchSenderClient<SaveLogEvent> {
     }
 
     @Override
-    public void sendItems(List<SaveLogEvent> aItems) {
+    public void sendItems(List<SaveLogEvent> aItems) throws SrvlogUnknownException {
         String           requestId = UUID.randomUUID().toString();
         SaveLogsResponse response;
         try {
@@ -26,6 +27,8 @@ public class BatchSenderClientImpl implements IBatchSenderClient<SaveLogEvent> {
                     .requestId(requestId)
                     .messages(aItems)
                     .build());
+        } catch (SrvlogUnknownException e) {
+            throw e;
         } catch (Exception e) {
             throw new IllegalStateException("Cannot send batch for request id " + requestId, e);
         }
