@@ -56,3 +56,30 @@ dirs:
 
 </appender>
 ```
+             
+
+## json api example
+
+endpoint: http://localhost:28080/save-logs
+
+```json
+{
+  "requestId": "0e088113-f578-42e3-8529-25a80b174f3a",
+  "messages": [
+    {
+      "time": 1742813520982,
+      "program": "program-1",
+      "facility": 1,
+      "severity": 4,
+      "message": "message 1"
+    },
+    {
+      "time": 1742813562657,
+      "program": "program-2",
+      "facility": 1,
+      "severity": 4,
+      "message": "message 2"
+    }
+  ]
+}
+```
