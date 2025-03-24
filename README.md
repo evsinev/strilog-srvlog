@@ -62,6 +62,13 @@ dirs:
 
 endpoint: http://localhost:28080/save-logs
 
+Headers:
+
+```
+Content-Type: application/json; charset=utf-8.
+Token: token-1d2ad41e-c44f-4e8d-89f8-2d988433ece6
+```
+
 ```json
 {
   "requestId": "0e088113-f578-42e3-8529-25a80b174f3a",
