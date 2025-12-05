@@ -25,14 +25,14 @@ public class FixDbString {
     }
 
     private static String replaceSurrogateAndTrim(String aText, int aMaxBytesLength) {
-        char[] original = aText.toCharArray();
-        char[] trimmed = new char[Math.min(original.length, aMaxBytesLength)];
+        int originalLength = aText.length();
+        char[] trimmed = new char[Math.min(originalLength, aMaxBytesLength)];
 
         int bytesCount = 0;
         int position = 0;
 
-        for (int i = 0; i < original.length; i++) {
-            char c           = original[i];
+        for (int i = 0; i < originalLength; i++) {
+            char c           = aText.charAt(i);
             int  bytesInChar = getBytesInChar(c);
 
             if (bytesInChar > 3) {
