@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.payneteasy.srvlog.api.model.SaveLogEvent;
 import com.payneteasy.strilog.sender.event.LogEvent;
 
+import static com.payneteasy.strilog.sender.util.FixDbString.fixDbString;
 import static org.slf4j.helpers.MessageFormatter.arrayFormat;
 
 public class LineToSaveLogEventConverter implements ILineToItemConverter<SaveLogEvent> {
@@ -32,7 +33,7 @@ public class LineToSaveLogEventConverter implements ILineToItemConverter<SaveLog
                 .severity(levelToSeverity(aEvent.getLevel()))
                 .facility(facility)
                 .program(program)
-                .message(toMessage(aEvent))
+                .message(fixDbString(toMessage(aEvent), 4_000))
                 .build();
     }
 
